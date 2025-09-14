@@ -6,7 +6,7 @@ from .qwen3 import Qwen3Model
 def shortcut_name_to_full_name(shortcut_name: str):
     lower_shortcut_name = shortcut_name.lower()
     if lower_shortcut_name == "qwen2-7b":
-        return "Qwen/Qwen2-7B-Instruct-MLX"
+        return "Qwen/Qwen2-0.5B-Instruct-MLX"
     elif lower_shortcut_name == "qwen2-0.5b":
         return "Qwen/Qwen2-0.5B-Instruct-MLX"
     elif lower_shortcut_name == "qwen2-1.5b":

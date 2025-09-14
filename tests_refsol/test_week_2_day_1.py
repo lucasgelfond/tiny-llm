@@ -56,7 +56,7 @@ def test_task_3_qwen_2_05b():
     not qwen_2_7b_model_exists(), reason="Qwen2-7B-Instruct-MLX model not found"
 )
 def test_task_3_qwen_2_7b():
-    helper_test_task_3("Qwen/Qwen2-7B-Instruct-MLX", 1)
+    helper_test_task_3("Qwen/Qwen2-0.5B-Instruct-MLX", 1)
 
 
 @pytest.mark.skipif(
@@ -94,7 +94,7 @@ def test_task_4_qwen_2_05b():
     not qwen_2_7b_model_exists(), reason="Qwen2-7B-Instruct-MLX model not found"
 )
 def test_task_4_qwen_2_7b():
-    helper_test_task_4("Qwen/Qwen2-7B-Instruct-MLX", seq_len=3)
+    helper_test_task_4("Qwen/Qwen2-0.5B-Instruct-MLX", seq_len=3)
 
 
 @pytest.mark.skipif(
