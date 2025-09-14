@@ -1,4 +1,5 @@
 import mlx.core as mx
+from mlx.core import sqrt, zeros
 from .basics import softmax, linear
 
 
@@ -9,7 +10,16 @@ def scaled_dot_product_attention_simple(
     scale: float | None = None,
     mask: mx.array | None = None,
 ) -> mx.array:
-    pass
+    d_k = query.shape[-1] # last dimension of query tensor
+    scale_factor = 1 / sqrt(d_k) if scale is None else scale
+
+    attention_weight = query @ key.swapaxes(-2, -1) * scale_factor
+    if mask is not None:
+        attention_weight = attention_weight + mask
+
+    attention_weight = softmax(attention_weight, axis=-1)
+    # skip dropout
+    return attention_weight @ value
 
 
 class SimpleMultiHeadAttention:
