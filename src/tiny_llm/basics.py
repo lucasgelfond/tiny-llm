@@ -12,7 +12,9 @@ def linear(
     w: mx.array,
     bias: mx.array | None = None,
 ) -> mx.array:
-    pass
+    # For linear, it takes a tensor of the shape N.. x I, a weight matrix of the shape O x I, and a bias vector of the shape O. The output is of the shape N.. x O. I is the input dimension and O is the output dimension.
+    output = x @ w.swapaxes(0,1) + (bias if bias is not None else 0)
+    return output
 
 
 def silu(x: mx.array) -> mx.array:
